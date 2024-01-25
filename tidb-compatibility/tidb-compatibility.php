@@ -1,17 +1,17 @@
 <?php
 /*
-Plugin Name: TiDB Compatibility
+Plugin Name: WordPress TiDB Compatibility
 Description: Optimize slow queries in WordPress.
-Version: 0.1
+Version: v 1.0
 Author: Cheng Chen
  */
-class FIX_WP_SLOW_QUERY {
-        public static function init() {
+class WTC_FIX_WP_SLOW_QUERY {
+        public static function wtc_init() {
                 /**
                  * WP_Query
                  */
-                add_filter( 'found_posts_query', [ __CLASS__, 'add_found_rows_query' ], 999, 2 );
-                add_filter( 'posts_request_ids', [ __CLASS__, 'remove_found_rows_query' ], 999 );
+                add_filter( 'found_posts_query', [ __CLASS__, 'wtc_add_found_rows_query' ], 999, 2 );
+                add_filter( 'posts_request_ids', [ __CLASS__, 'wtc_remove_found_rows_query' ], 999 );
                 add_filter( 'posts_pre_query', function ( $posts, \WP_Query $query ) {
                         $query->request = self::remove_found_rows_query( $query->request );
                         return $posts;
@@ -21,10 +21,10 @@ class FIX_WP_SLOW_QUERY {
                         return $clauses;
                 }, 999, 2 );
         }
-        public static function remove_found_rows_query( $sql ) {
+        public static function wtc_remove_found_rows_query( $sql ) {
                 return str_replace( ' SQL_CALC_FOUND_ROWS ', '', $sql );
         }
-        public static function add_found_rows_query( $sql, WP_Query $query ) {
+        public static function wtc_add_found_rows_query( $sql, WP_Query $query ) {
                 global $wpdb;
                 $distinct = $query->fw_clauses['distinct'] ?? '';
                 $join     = $query->fw_clauses['join'] ?? '';
@@ -41,4 +41,4 @@ class FIX_WP_SLOW_QUERY {
                 ";
         }
 }
-FIX_WP_SLOW_QUERY::init();
+WTC_FIX_WP_SLOW_QUERY::wtc_init();
