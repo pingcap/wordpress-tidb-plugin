@@ -1,6 +1,15 @@
 # TiDB Compatibility Plugin for WordPress 
 TiDB Compatibility Plugin for WordPress
 
+- Contributors: cc8602@gmail.com / it2911
+- Tags: v 1.0
+- Requires at least: 4.7
+- Tested up to: 6.4.2
+- Stable tag: 4.3
+- Requires PHP: 7.0
+- License: GPLv2 or later
+- License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
 [TiDB](https://en.pingcap.com) is a high-performance database that is compatible with the MySQL protocol. Since MySQL has deprecated the `SQL_CALC_FOUND_ROWS` function, TiDB also has no intention of offering the `SQL_CALC_FOUND_ROWS function`. This leads to an error in WordPress when using TiDB, indicating that `SQL_CALC_FOUND_ROWS` is not supported, and submissions cannot be displayed correctly.
 
 WordPress is also currently working on this issue, but it seems that more time is needed.
