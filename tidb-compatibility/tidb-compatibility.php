@@ -3,8 +3,13 @@
 Plugin Name: WordPress TiDB Compatibility
 Description: Optimize slow queries in WordPress.
 Version: v 1.0
-Author: Cheng Chen
+Author: it2911
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 class WTC_FIX_WP_SLOW_QUERY {
         public static function wtc_init() {
                 /**
