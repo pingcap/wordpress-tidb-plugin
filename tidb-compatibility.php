@@ -24,7 +24,7 @@ class WTC_FIX_WP_SLOW_QUERY {
                 add_filter( 'found_posts_query', [ __CLASS__, 'wtc_add_found_rows_query' ], 999, 2 );
                 add_filter( 'posts_request_ids', [ __CLASS__, 'wtc_remove_found_rows_query' ], 999 );
                 add_filter( 'posts_pre_query', function ( $posts, \WP_Query $query ) {
-                        $query->request = self::remove_found_rows_query( $query->request );
+                        $query->request = self::wtc_remove_found_rows_query( $query->request );
                         return $posts;
                 }, 999, 2 );
                 add_filter( 'posts_clauses', function ( $clauses, \WP_Query $wp_query ) {
