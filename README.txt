@@ -3,7 +3,7 @@ Contributors: it2911
 Tags: tidb
 Requires at least: 4.7
 Tested up to: 6.4.2
-Stable tag: 5.4
+Stable tag: 1.0.0
 Requires PHP: 7.0
 License: GPL-3.0 license
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
