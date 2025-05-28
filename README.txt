@@ -1,9 +1,9 @@
 === WordPress TiDB Compatibility ===
 Contributors: it2911
-Tags: tidb
+Tags: tidb, database, sql
 Requires at least: 4.7
-Tested up to: 6.4.2
-Stable tag: 1.0.0
+Tested up to: 6.8.1
+Stable tag: 1.0.1
 Requires PHP: 7.0
 License: GPL-3.0 license
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -19,3 +19,13 @@ WordPress is also currently working on this issue, but it seems that more time i
 This plugin solves the issue of TiDB not providing the SQL_CALC_FOUND_ROWS function. Once this plugin is activated, parts of WP_Query that use SQL_CALC_FOUND_ROWS will be replaced with the COUNT(*) function.
 
 This plugin is entirely based on the method mentioned by @akramipro in the article, and this solution works perfectly and addresses the issue. I've turned this method into a plugin so that those using TiDB can easily resolve this problem. Many thanks to @akramipro for the excellent work, and I hope the official WordPress team can address this issue sooner.
+
+== Contribute ==
+
+Contribute to this plugin on [github.com/pingcap/wordpress-tidb-plugin](https://github.com/pingcap/wordpress-tidb-plugin)
+
+== Changelog ==
+
+= 1.0.1 =
+
+* Update README, tags and compatibility info
