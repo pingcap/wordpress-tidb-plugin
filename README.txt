@@ -1,4 +1,4 @@
-=== WordPress TiDB Compatibility ===
+=== TiDB Compatibility ===
 Contributors: it2911
 Tags: tidb, database, sql
 Requires at least: 4.7

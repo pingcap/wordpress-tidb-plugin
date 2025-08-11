@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name:       WordPress TiDB Compatibility
+ * Plugin Name:       TiDB Compatibility
  * Description:       Optimize slow queries in WordPress.
  * Version:           1.0.1
  * Requires at least: 4.7
