@@ -4,7 +4,7 @@
  * Description:       Optimize slow queries in WordPress.
  * Version:           1.0.3
  * Requires at least: 4.7
- * Requires PHP:      6.8.1
+ * Requires PHP:      7.0
  * Author:            it2911
  * Author URI:        https://github.com/it2911
  * License:           GPL-3.0 license
