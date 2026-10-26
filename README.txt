@@ -3,7 +3,7 @@ Contributors: it2911
 Tags: tidb, database, sql
 Requires at least: 4.7
 Tested up to: 6.8.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 7.0
 License: GPL-3.0 license
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -25,6 +25,10 @@ This plugin is entirely based on the method mentioned by @akramipro in the artic
 Contribute to this plugin on [github.com/pingcap/wordpress-tidb-plugin](https://github.com/pingcap/wordpress-tidb-plugin)
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Security: count found posts from the executed query, so pagination totals no longer include posts hidden by query filters or suppress_filters
 
 = 1.0.2 =
 
