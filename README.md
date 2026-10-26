@@ -11,6 +11,14 @@ This plugin solves the issue of TiDB not providing the `SQL_CALC_FOUND_ROWS func
 
 This plugin is entirely based on the method mentioned by [@akramipro](https://github.com/AkramiPro) in the [article](https://core.trac.wordpress.org/ticket/47280), and this solution works perfectly and addresses the issue. I've turned this method into a plugin so that those using TiDB can easily resolve this problem. Many thanks to [@akramipro](https://github.com/AkramiPro) for the excellent work, and I hope the official WordPress team can address this issue sooner.
 
+### Configuration
+
+The plugin only rewrites queries when the database server reports itself as TiDB.
+
+- Define `WTC_DISABLE` as `true` in `wp-config.php` to switch the rewrite off.
+- Use the `tidb_compatibility_enabled` filter (from a plugin or must-use plugin, not a theme) to override the TiDB detection.
+- With `WP_DEBUG` enabled, the plugin logs to the PHP error log when it is inactive, when it keeps the core count query, and when its count query fails. Activation and deactivation are always logged.
+
 ### Installation
 
 #### From the WordPress plugin directory
