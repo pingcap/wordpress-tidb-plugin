@@ -1,0 +1,32 @@
+# TiDB + WordPress environment for run.sh. The repository root is mounted as
+# the plugin, so the working tree is what gets tested.
+name: wtc-integration
+x-db: &db
+  WORDPRESS_DB_HOST: tidb:4000
+  WORDPRESS_DB_USER: root
+  WORDPRESS_DB_PASSWORD: ""
+  WORDPRESS_DB_NAME: wordpress
+  # TiDB rejects utf8mb4_unicode_520_ci, which WordPress picks by default.
+  WORDPRESS_DB_COLLATE: utf8mb4_general_ci
+x-volumes: &volumes
+  - wp:/var/www/html
+  - ../..:/var/www/html/wp-content/plugins/tidb-compatibility:ro
+  - ./mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+services:
+  tidb:
+    image: ${TIDB_IMAGE:-pingcap/tidb:v8.5.1}
+  wordpress:
+    image: ${WP_IMAGE:-wordpress:6.8-php8.2-apache}
+    depends_on: [tidb]
+    ports: ["${WP_PORT:-18090}:80"]
+    environment: *db
+    volumes: *volumes
+  cli:
+    image: ${WP_CLI_IMAGE:-wordpress:cli-php8.2}
+    depends_on: [wordpress]
+    user: "33:33"
+    environment: *db
+    volumes: *volumes
+    entrypoint: ["wp"]
+volumes:
+  wp:

@@ -1,0 +1,12 @@
+{
+    "name": "pingcap/tidb-compatibility",
+    "description": "TiDB Compatibility plugin for WordPress",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0-only",
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
