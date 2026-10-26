@@ -40,3 +40,20 @@ Alternatively you can also install this plugin manually following these steps:
 4. Extract the Plugin: After uploading, extract the .zip file. This will create a new folder with the plugin files.
 
 5. Activate the Plugin: Go to your WordPress admin area. Click on 'Plugins' in the menu, find your newly uploaded plugin and click 'Activate'.
+
+### Development
+
+Unit tests run without WordPress or a database:
+
+```bash
+composer install
+vendor/bin/phpunit
+```
+
+The integration test starts TiDB and WordPress with Docker Compose, mounts this repository as the plugin and checks pagination totals as an anonymous visitor:
+
+```bash
+tests/integration/run.sh
+```
+
+Set `KEEP=1` to leave the environment running, and `WP_PORT`, `TIDB_IMAGE`, `WP_IMAGE` or `WP_CLI_IMAGE` to override the defaults. Both run in GitHub Actions on every pull request.
