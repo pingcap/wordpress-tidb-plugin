@@ -70,6 +70,11 @@ class PluginTest extends TestCase {
 				"SELECT wp_posts.ID FROM wp_posts WHERE post_title = 'LIMIT 5' LIMIT 0, 10",
 				"SELECT wp_posts.ID FROM wp_posts WHERE post_title = 'LIMIT 5'",
 			],
+			// The count keeps the request's own table even if $wpdb has since switched blogs.
+			'multisite blog table'      => [
+				"SELECT wp_2_posts.ID FROM wp_2_posts WHERE 1=1 AND wp_2_posts.post_status = 'publish' LIMIT 0, 10",
+				"SELECT wp_2_posts.ID FROM wp_2_posts WHERE 1=1 AND wp_2_posts.post_status = 'publish'",
+			],
 		];
 	}
 
